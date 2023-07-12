@@ -1,0 +1,16 @@
+{
+    "name": "jared-spb/php-docblock-parser",
+    "description": "Parses docblocks",
+    "require": {
+        "php": ">=7.4",
+        "jared-spb/php-tokenizer": "dev-main"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.2"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/"
+        ]
+    }
+}
