@@ -19,12 +19,15 @@ trait ConacatenatingContainer{
 
 	function trim(){
 
-		if( is_string( $this->children[0] ) )
-			$this->children[0] = ltrim($this->children[0]);
+		if( !empty( $this->children ) ){
 
-		if( is_string( $this->children[ count( $this->children ) - 1 ] ) )
-			$this->children[ count( $this->children ) - 1 ] = rtrim($this->children[ count( $this->children ) - 1 ]);
+			if( is_string( $this->children[0] ) )
+				$this->children[0] = ltrim($this->children[0]);
 
+			if( is_string( $this->children[ count( $this->children ) - 1 ] ) )
+				$this->children[ count( $this->children ) - 1 ] = rtrim($this->children[ count( $this->children ) - 1 ]);
+
+		}
 
 	}
 	
