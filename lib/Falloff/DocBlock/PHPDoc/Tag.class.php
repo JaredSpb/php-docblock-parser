@@ -147,7 +147,7 @@ abstract class Tag extends \Falloff\DocBlock\Entity {
 
 		}
 
-		throw new \Exception("No such field `$name` for the " . self::class . ' instance');
+		throw new \Exception("No such field `$name` for the " . get_class($this) . ' instance');
 
 	}
 

@@ -74,6 +74,10 @@ class PHPDoc implements \ArrayAccess, \Iterator, \Countable {
 			else{
 				
 				if( !in_array($token->type, ['NEWLINE', 'SPACE']) ){
+
+print_r($this);
+exit;
+
 					throw new UnexpectedTokenException("Token of type `{$token->type}` with the value of `{$token->value}` is not supposed to be here");
 				}
 

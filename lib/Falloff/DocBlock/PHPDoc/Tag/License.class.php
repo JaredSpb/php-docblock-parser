@@ -5,14 +5,14 @@ use Falloff\DocBlock\PHPDoc;
 
 class License extends \Falloff\DocBlock\PHPDoc\Tag {
 
-	protected ?PHPDoc\TextBlock $license = null;
+	protected ?PHPDoc\Text $license = null;
 	protected ?Terminal\URL $url = null;
 
 
 	protected function parsePlan(){
 		
 		return [
-			'license' => PHPDoc\TextBlock::class,
+			'license' => PHPDoc\Text::class,
 			'url'	=> Terminal\URL::class,
 		];
 

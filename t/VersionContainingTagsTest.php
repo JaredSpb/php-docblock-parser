@@ -16,6 +16,15 @@ final class VersionContainingTagsTest extends TestCase
         $this->assertEquals( get_class($docblock[0]), Version::class );
         $this->assertEquals( (string)$docblock[0]->version, '1.0' );
 
+
+
+        $string = "/** @version 1.0 (1970-01-31) */";
+
+        $docblock = new Falloff\DocBlock\PHPDoc( $string );
+        $this->assertEquals( get_class($docblock[0]), Version::class );
+        $this->assertEquals( (string)$docblock[0]->version, '1.0' );
+        $this->assertEquals( (string)$docblock[0]->description[0], '(1970-01-31)' );
+
     }
 
     function testVersionContainingTagsBase(): void{

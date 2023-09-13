@@ -72,8 +72,10 @@ class TextBlock extends Entity {
 		if( $stream->eof )
 			return null;
 
+		if( Text::accept( $token ) )
+			return $this->text->process( $token );
 
-		return $this->text->process( $stream() );
+		return $token;
 
 		
 	}

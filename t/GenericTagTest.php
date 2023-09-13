@@ -54,7 +54,7 @@ final class GenericTagTest extends TestCase implements Visitor
         , 'subtestGenericTagValueVisisted'
     ];
 
-    function in( Entity|string $el, array $payload, int|string $index ){
+    function in( Entity|string|null $el, array $payload, int|string $index ){
 
         if( empty($this->test_plan) )
             throw new \Exception("Test plan is empty!");
@@ -64,7 +64,7 @@ final class GenericTagTest extends TestCase implements Visitor
         return $this->$test( $el, $payload, $index );
     }
 
-    function out( Entity|string $el, array $payload, int|string $index ){}
+    function out( Entity|string|null $el, array $payload, int|string $index ){}
 
     function subtestGenericTagVisisted( $el, $payload, $index ){
         $this->assertEquals($index, 0);
