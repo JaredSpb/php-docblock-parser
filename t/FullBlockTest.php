@@ -31,7 +31,7 @@ final class FullBlockTest extends TestCase{
 
 
         $this->assertEquals( get_class($docblock[2]), License::class );
-		$this->assertEquals( $docblock[2]->license[0], 'LicenceName' );
+		$this->assertEquals( $docblock[2]->license, 'LicenceName' );
 
         $this->assertEquals( get_class($docblock[3]), Version::class );
 		$this->assertEquals( $docblock[3]->version, '1.0.0' );

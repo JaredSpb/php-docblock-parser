@@ -38,8 +38,9 @@ class Text extends Entity implements \ArrayAccess, \Iterator, \Countable {
 		return [];
 	}
 
-	function process( Token $token ): ?Token{
+	function process( Token $initial_token ): ?Token{
 
+		$token = $initial_token;
 		do{
 
 			// No summary, instantly going for the text
@@ -47,15 +48,23 @@ class Text extends Entity implements \ArrayAccess, \Iterator, \Countable {
 
 				if( empty( $this->multiline ) ){
 
-					if( $token->type == 'DOT_NEWLINE' )
+					if( $token->type == 'DOT_NEWLINE' ){
 						$this->append( $token->value );
+					}
 
 					$this->trim();
 					return $token;
 
-				}
+				} elseif( $token->type == 'DOT_NEWLINE'){
 
-				$this->append( $token->value );
+					if($token !== $initial_token )
+						$this->append( $token->value );
+
+				} else{
+
+					$this->append( $token->value );
+
+				}				
 
 			} elseif( $token->type == 'QUOTE' ) {
 

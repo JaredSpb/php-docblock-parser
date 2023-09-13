@@ -14,6 +14,7 @@ class Str extends \Falloff\DocBlock\PHPDoc\Terminal {
 		'PARENTHESIS_OPEN',
 		'PARENTHESIS_CLOSE',
 		'AT',
+		'INT',
 		'SPACE',
 		'WORD',
 		'SYMBOL',		
@@ -35,6 +36,7 @@ class Str extends \Falloff\DocBlock\PHPDoc\Terminal {
 		$stream = $this->stream->get();
 
 		while( $token and in_array($token->type, static::TOKENS_OKAY) ){
+
 			$this->value .= $token->value;
 
 			if( $stream->eof ){
@@ -46,6 +48,7 @@ class Str extends \Falloff\DocBlock\PHPDoc\Terminal {
 		}
 
 		$this->value = trim($this->value);
+
 		return $token;
 
 	}

@@ -7,7 +7,7 @@ use Falloff\DocBlock\PHPDoc\{
 	Placeholder,
 };
 use Falloff\DocBlock\PHPDoc\Tag\{
-	Licence
+	License
 	, Link
 	, See
 };
@@ -16,26 +16,26 @@ use Falloff\DocBlock\PHPDoc\Terminal;
 
 final class URLContainingTagsTest extends TestCase{
 
-	function testLicenceTag(){
+	function testLicenseTag(){
 
 		$string = '/**
-			* @licence
+			* @license
 		*/';
 
         $docblock = new Falloff\DocBlock\PHPDoc( $string );
 
-        $this->assertEquals( get_class($docblock[0]), Licence::class );
+        $this->assertEquals( get_class($docblock[0]), License::class );
 
 
         $string = '/**
-			* @licence MIT
+			* @license MIT
 		*/';
 
         $docblock = new Falloff\DocBlock\PHPDoc( $string );
-        $this->assertEquals( $docblock[0]->licence, 'MIT' );
+        $this->assertEquals( $docblock[0]->license, 'MIT' );
 
         $string = '/**
-			* @licence https://mit-license.org/
+			* @license https://mit-license.org/
 		*/';
 
         $docblock = new Falloff\DocBlock\PHPDoc( $string );
@@ -43,11 +43,11 @@ final class URLContainingTagsTest extends TestCase{
 
 
         $string = '/**
-			* @licence https://mit-license.org/ MIT
+			* @license https://mit-license.org/ MIT
 		*/';
 
         $docblock = new Falloff\DocBlock\PHPDoc( $string );
-        $this->assertEquals( (string)$docblock[0]->licence, 'MIT' );
+        $this->assertEquals( (string)$docblock[0]->license, 'MIT' );
         $this->assertEquals( (string)$docblock[0]->url, 'https://mit-license.org/' );
 
 	}
