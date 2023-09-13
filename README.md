@@ -5,7 +5,7 @@ This a standalone library for parsing docblocks. Only PHPDoc v3 are supported at
 ## Installation
 
 ```
-composer require jared-spb/php-docblock-parser
+composer require jared/php-docblock-parser
 ```
 
 ## Usage

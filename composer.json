@@ -1,5 +1,5 @@
 {
-    "name": "jared-spb/php-docblock-parser",
+    "name": "jared/php-docblock-parser",
     "description": "Parses docblocks",
     "require": {
         "php": ">=8.1",
