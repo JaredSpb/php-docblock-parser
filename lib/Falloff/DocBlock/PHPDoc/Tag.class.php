@@ -9,6 +9,8 @@ abstract class Tag extends \Falloff\DocBlock\Entity {
 
 	use Visitable;
 
+	protected readonly string $tagname;
+
 	static function create( Token $name, Stream $stream ){
 
 		if( $name->type != 'WORD' )
@@ -18,13 +20,15 @@ abstract class Tag extends \Falloff\DocBlock\Entity {
 
 		$full_klassname =  'Falloff\\DocBlock\\PHPDoc\\Tag\\' . $klassname;
 
-		if( class_exists($full_klassname) )
-			return new $full_klassname( $stream );
-		else {
-			$tag = new GenericTag( $stream );
-			$tag->setName( $name->value );
-			return $tag;
-		}
+		$tag = (
+			class_exists($full_klassname)
+			? new $full_klassname( $stream )
+			: new GenericTag( $stream )
+		);
+
+		$tag->tagname = $name->value;
+
+		return $tag;
 	}
 
 	abstract protected function parsePlan();
@@ -128,6 +132,9 @@ abstract class Tag extends \Falloff\DocBlock\Entity {
 	}
 
 	function __get( string $name ){
+
+		if( $name == 'tagname' )
+			return $this->tagname;
 
 		if(property_exists($this, $name) ){
 

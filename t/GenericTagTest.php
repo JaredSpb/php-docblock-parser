@@ -15,7 +15,7 @@ final class GenericTagTest extends TestCase implements Visitor
         $docblock = new Falloff\DocBlock\PHPDoc( $string );
         $this->assertEquals( get_class($docblock[0]), GenericTag::class );
 
-        $this->assertEquals( $docblock[0]->name, 'some-generic-tag' );
+        $this->assertEquals( $docblock[0]->tagname, 'some-generic-tag' );
         $this->assertEquals( $docblock[0][0], 'John Doe <doe@sub.domain.tld>' );
 
     }
@@ -30,10 +30,10 @@ final class GenericTagTest extends TestCase implements Visitor
         $docblock = new Falloff\DocBlock\PHPDoc( $string );
         $this->assertEquals( get_class($docblock[0]), GenericTag::class );
 
-        $this->assertEquals( $docblock[0]->name, 'some-generic-tag' );
+        $this->assertEquals( $docblock[0]->tagname, 'some-generic-tag' );
         $this->assertEquals( $docblock[0][0], 'John Doe <doe@sub.domain.tld>' );
 
-        $this->assertEquals( $docblock[1]->name, 'other-tag' );
+        $this->assertEquals( $docblock[1]->tagname, 'other-tag' );
         $this->assertTrue( empty($docblock[1][0]) );
 
     }

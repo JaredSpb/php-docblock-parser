@@ -6,8 +6,6 @@ use Falloff\Tokenizer\Token;
 class GenericTag extends \Falloff\DocBlock\PHPDoc\Tag implements \ArrayAccess, \Iterator, \Countable {
 
 	use Receptacle;
-
-	protected readonly string $name;
 	
 	function parsePlan() : array {
 		return [];
@@ -52,11 +50,5 @@ class GenericTag extends \Falloff\DocBlock\PHPDoc\Tag implements \ArrayAccess, \
 
 	}
 
-	function __get( string $what ) : string{
-		if( $what == 'name' )
-			return $this->name;
-
-		return parent::__get($what);
-	}
 
 }

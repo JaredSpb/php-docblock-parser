@@ -36,19 +36,19 @@ final class NamedVarsTagsTest extends TestCase{
             $this->assertEquals( $docblock[0]->type, 'int|Some\Class|string[]' );
 
             $string = "/** 
-                * @$tag int|Some\Class|string[] \$varname
+                * @$tag int|Some\Class|string[] \$var
             */";
 
             $docblock = new Falloff\DocBlock\PHPDoc( $string );
             $this->assertEquals( $docblock[0]->type, 'int|Some\Class|string[]' );
-            $this->assertEquals( $docblock[0]->name, '$varname' );
+            $this->assertEquals( $docblock[0]->name, '$var' );
 
             $string = "/** 
-                * @$tag \$varname
+                * @$tag \$var
             */";
 
             $docblock = new Falloff\DocBlock\PHPDoc( $string );
-            $this->assertEquals( $docblock[0]->name, '$varname' );
+            $this->assertEquals( $docblock[0]->name, '$var' );
 
 
             $string = "/** 
